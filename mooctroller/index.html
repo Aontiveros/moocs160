@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name ="viewport" content ="width =device-width, initial-scale =1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <title>manooc</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+  var xml = new XMLHttpRequest();
+
+  $(document).ready(function () {
+    //sidebar toggle
+    $('.sidebar-btn').click(function(){
+      $('#wrapper').toggleClass('toggled');
+    });
+
+    xml.onreadystatechange = function() {
+      if (xml.readyState == 4) {
+        var xmldata = jQuery.parseJSON(xml.responseText);
+        //window.alert(JSON.stringify(xmldata));
+        addToTable(xmldata);
+      }
+    }
+
+    function addToTable(data){
+      var content;
+      jQuery.each(data, function(i, val) {
+        //console.log(i +" ------  "+ val.title );
+        content +=
+        "<tr><td><img src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>" +
+        "<td>"+val.title +"</td>" +
+        "<td>"+val.short_desc +"</td>" +
+        "<td>"+val.category +"</td>" +
+        "<td>"+val.start_date +"</td>" +
+        "<td>"+val.course_length +"</td>" +
+        "<td>"+val.site +"</td></tr>";
+      });
+      $("#coursetable").append(content);
+    }
+
+    //get request to DB
+    $('#search-btn').click(function(){
+      //console.log("---------get allCourseData-----------");
+      xml.open("GET", "/allCourseData", true);
+      xml.send();
+    });
+
+
+  });
+  </script>
+
+
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <ul class="nav sidebar-nav">
+        <li class="sidebar-brand">
+          <a href="#">
+            hi user
+          </a>
+        </li>
+        <li>
+          <a href="#">test</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <button type="button" class="sidebar-btn" >
+      </button>
+      <div class="container">
+
+        <!-- Logo "MOOCs" -->
+        <div class="row">
+          <h1 class="logo">
+            M
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Cs
+          </h1>
+        </div>
+        <!-- End of Logo -->
+
+
+        <!-- Search Bar -->
+        <div class="row">
+          <div class="col-md-offset-6 searchBar">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit" id="search-btn">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+          <!-- Search Options -->
+          <div class="row" >
+            <form role="form" class="searchOpt">
+              <label> Search By:</label>
+              <label class="radio-inline">
+                <input type="radio" name="courseOpt">Course
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="instructorOpt">Instructor
+              </label>
+            </form>
+          </div>
+          <!-- End of Search Options -->
+        </div>
+        <!--End of Search Bar  -->
+        <br><br>
+
+        <!-- <thead>
+        <tr>
+        <th>Month</th>
+        <th>Savings</th>
+      </tr>
+    </thead> -->
+
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Start Date</th>
+          <th>Length</th>
+          <th>Site</th>
+        </tr>
+      </thead>
+      <tbody id="coursetable">
+      </tbody>
+    </table>
+
+
+
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>
