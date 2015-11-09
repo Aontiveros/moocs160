@@ -10,18 +10,23 @@ public class Course {
 	private String whatIsItAbout;
 	private String whatWillILearn;
 	private String instructorBio;
+	private String teacherImage;
+	private String videoLink;
+	private String id;
 	
 	
 	public Course(String title, String description, String detailPage){
-		this.title = title;
-		this.description = description;
+		this.setTitle(title);
+		this.setDescription(description);
 		this.detailPage = detailPage;
+		String[] arr =this.detailPage.split("/");
+		id = "1"+arr[arr.length - 1];
 	}
 	
 
 	
 	public void setInstructor(String instructor){
-		this.instructorName = instructor;
+		this.setInstructorName(instructor);
 	}
 	
 	public String getDetailPageURL(){
@@ -29,9 +34,8 @@ public class Course {
 	}
 	
 	public String toString(){
-		return "Title: " + title 
-				+ "\nDescription: " + description
-				+ "\nInstructor: " + instructorName;
+		return "Title: " + title ;
+				
 	}
 
 
@@ -92,6 +96,78 @@ public class Course {
 
 	public void setInstructorBio(String instructorBio) {
 		this.instructorBio = instructorBio;
+	}
+
+
+
+	public String getTeacherImage() {
+		return teacherImage;
+	}
+
+
+
+	public void setTeacherImage(String teacherImage) {
+		this.teacherImage = teacherImage;
+	}
+
+
+
+	public String getVideoLink() {
+		return videoLink;
+	}
+
+
+
+	public void setVideoLink(String videoLink) {
+		this.videoLink = videoLink;
+	}
+
+
+
+	public String getInstructorName() {
+		return instructorName;
+	}
+
+
+
+	public void setInstructorName(String instructorName) {
+		this.instructorName = instructorName;
+	}
+
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+
+	public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
 	
