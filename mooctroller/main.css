@@ -1,17 +1,47 @@
 body {
   position: relative;
   overflow-x: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 body,
 html { height: 100%;}
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {background-color: transparent;}
+
 table {
   table-layout: fixed;
-  margin-left: 2em;
-  margin-right: 2em;
+  vertical-align: middle;
+
 }
+
+#searchResTable{
+  word-wrap: break-word;
+}
+#searchResRow{
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+#table_entries{
+  overflow: scroll;
+  overflow-x: hidden;
+   height: 150px;
+}
+
+#lockedHeader{
+  background-color: rgba(0,0,0,.6);
+  color: white;
+  //left:0;
+  left:7%;
+  border-radius: 50px;
+}
+
 
 .searchBar{
   //  position:relative;
@@ -27,6 +57,7 @@ table {
 .logo{
   width:18vw;
   margin:auto;
+  min-width: 100px;
 }
 
 .templateImage{
@@ -35,12 +66,10 @@ table {
   height:150px;
 }
 
-#searchButton{
-  padding: 20px;
-}
-#coursetable{
-  padding:  20px;
-}
+
+/*#c_shortdesc{
+overflow: scroll;
+}*/
 
 
 //
@@ -71,6 +100,10 @@ table {
 }
 
 #wrapper.toggled {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   padding-left: 220px;
 }
 
