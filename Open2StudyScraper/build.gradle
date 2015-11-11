@@ -1,2 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+mainClassName  = 'Parser'
+dependencies {
+    compile 'mysql:mysql-connector-java:3.1.14'
+    compile  'org.jsoup:jsoup:1.8.3'
+    compile 'org.json:json:20150729'
+}
+manifest {
+                attributes 'Main-Class': 'Parser'    
+}
