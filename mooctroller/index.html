@@ -12,87 +12,7 @@
   <title>manooc</title>
 </head>
 <body>
-  <script type="text/javascript">
-  var xml = new XMLHttpRequest()
-
-  $(document).ready(function () {
-    //sidebar toggle
-    $('.sidebar-btn').click(function(){
-      $('#wrapper').toggleClass('toggled');
-    });
-
-    //
-    //Ajax get request
-    //
-    $('#search-btn').click(function(){
-      //console.log("---------get allCourseData-----------");
-      var reg = /[^A-Za-z0-9 ]/;
-
-      if(!reg.test($("#searchBarTextBox").value)){
-        xml.open("GET", "/allCourseData", true);
-        xml.send();
-      }else{
-        alert("Please use only letters and digits in your search.");
-      }
-    });
-
-    //
-    //Ajax response
-    //
-    xml.onreadystatechange = function() {
-      if (xml.readyState == 4) {
-        var xmldata = jQuery.parseJSON(xml.responseText);
-        //window.alert(JSON.stringify(xmldata));
-        //document.write(JSON.stringify(xmldata));
-        addToCourseTable(xmldata);
-        // TODO: close the xml stream? needed?
-      }
-    }
-
-    //
-    //ajax data parsed to table rows
-    //
-    function addToCourseTable(data){
-      var content;
-      jQuery.each(data, function(i, val) {
-        //console.log(i +" ------  "+ val.title );
-        content +=
-        "<tr id=\"searchResRow\">"+
-        "<td><img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>" +
-        "<td id=\"c_title\">"+val.title +"</td>" +
-        "<td id=\"c_shortdesc\" ><div id=\"table_entries\">" + val.short_desc + "</div></td>" +
-        "<td>"+val.category +"</td>" +
-        "<td>"+val.start_date +"</td>" +
-        "<td>"+val.course_length +"</td>" +
-        "<td>"+val.site +"</td></tr>"
-        ;
-      });
-      $("#coursetable").append(content);
-    }
-    //
-    //TODO:
-    //  add the search button handler
-    //  add regex get requests
-    //  add db queries on regex + course or prof option
-    //
-
-
-    //
-    // locking header fucntionality
-    //
-    // var div=$('#lockedHeader');
-    // var start=$(div).offset().top;
-
-    //   $.event.add(window,'scroll',function(){
-    //     var p=$(window).scrollTop();
-    //     $(div).css('position',(p>start)?'fixed':'static');
-    //     $(div).css('top',(p>start)?'0px':'');
-    //$(div).css('width',(p>start)?'inherit':'');
-    //$(div).css('margin-left',(p>start)?'100px':'');
-    //   });
-  });
-
-  </script>
+  <script type="text/javascript" src="home.js"></script>
 
 
   <div id="wrapper">
@@ -169,7 +89,7 @@
           <table>
             <tr>
               <!--id="lockedHeader" Not functioning  -->
-              <table  class="table table-condensed table-bordered">
+              <table id="maintable" class="table table-condensed table-bordered">
                 <tr>
                   <td><b>Image</b></td>
                   <td><b>Title</b></td>
@@ -186,6 +106,7 @@
               </table>
             </tr>
           </table>
+		  <button class="prev">Previous Page</button><button class="next">Next Page</button>
 
           <!-- <table class="searchResTable table table-hover table-bordered"  >
           <thead>
