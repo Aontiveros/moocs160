@@ -45,7 +45,7 @@
         //window.alert(JSON.stringify(xmldata));
         //document.write(JSON.stringify(xmldata));
         addToCourseTable(xmldata);
-        xmlhttp.send(null);
+        // TODO: close the xml stream? needed?
       }
     }
 
@@ -80,16 +80,16 @@
     //
     // locking header fucntionality
     //
-    var div=$('#lockedHeader');
-    var start=$(div).offset().top;
+    // var div=$('#lockedHeader');
+    // var start=$(div).offset().top;
 
-    $.event.add(window,'scroll',function(){
-      var p=$(window).scrollTop();
-      $(div).css('position',(p>start)?'fixed':'static');
-      $(div).css('top',(p>start)?'0px':'');
-      $(div).css('width',(p>start)?'inherit':'');
-      //$(div).css('margin-left',(p>start)?'100px':'');
-    });
+    //   $.event.add(window,'scroll',function(){
+    //     var p=$(window).scrollTop();
+    //     $(div).css('position',(p>start)?'fixed':'static');
+    //     $(div).css('top',(p>start)?'0px':'');
+    //$(div).css('width',(p>start)?'inherit':'');
+    //$(div).css('margin-left',(p>start)?'100px':'');
+    //   });
   });
 
   </script>
@@ -168,7 +168,8 @@
 
           <table>
             <tr>
-              <table id="lockedHeader" class="table table-condensed table-bordered">
+              <!--id="lockedHeader" Not functioning  -->
+              <table  class="table table-condensed table-bordered">
                 <tr>
                   <td><b>Image</b></td>
                   <td><b>Title</b></td>
