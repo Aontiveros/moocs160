@@ -40,24 +40,25 @@ function validate() {
 		var pass2 = document.getElementById("passField2").value;
         verifyEmail(email);
 		verifyPassword(pass1, pass2);
-		
-		$.ajax({
-       type: "POST",
-        url: "/createusr",
-            contentType: "application/json",
-       
-       data:JSON.stringify({
-           username:email,
-           password:pass1
-       }),
-       success: function() {
-          createCookie(email);
-         alert('Account Created!');
-         goBackToSearch();
-       },
-       error: function(){
-           alert('Account not created, account may already exist');
-       }
-    });
+		if (verifyEmail(email) && verifyPassword(pass1, pass2)){
+            $.ajax({
+                type: "POST",
+                    url: "/createusr",
+                        contentType: "application/json",
+                
+                data:JSON.stringify({
+                    username:email,
+                    password:pass1
+                }),
+                success: function() {
+                    createCookie(email);
+                    alert('Account Created!');
+                    goBackToSearch();
+                },
+                error: function(){
+                    alert('Account not created, account may already exist');
+                }
+            });
+        }
 
 }
