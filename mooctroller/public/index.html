@@ -7,7 +7,7 @@
 
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-
+  <script type="text/javascript" src="scripts/home.js"></script>
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
@@ -16,7 +16,6 @@
   <title>manooc</title>
 </head>
 <body>
-  <script type="text/javascript" src="home.js"></script>
   <div id="wrapper">
     <!-- Sidebar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
@@ -36,7 +35,13 @@
           Browse Per Major
         </li>
         <li id="login-btn"class="btn btn-primary" style="width: 150px;">
-          Log In
+          <a id="loginButton" href="login.html">Log In</a>
+        </li>
+        <li id="logout-btn"class="btn btn-primary" style="width: 150px;" onclick="logOut()">
+          Log Out
+        </li>
+        <li id="createacc-btn"class="btn btn-primary" style="width: 150px;">
+          <a id="loginButton" href="create_account.html">Create Account</a>
         </li>
       </ul>
     </nav>

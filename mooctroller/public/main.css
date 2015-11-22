@@ -120,3 +120,7 @@ table {
 .sidebar-items{
   line-height: 800%;
 }
+
+#loginButton{
+  color: white;
+}
