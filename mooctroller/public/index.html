@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name ="viewport" content ="width =device-width, initial-scale =1">
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+
+  <link rel="stylesheet" href="main.css">
+  <title>manooc</title>
+</head>
+<body>
+  <script type="text/javascript" src="home.js"></script>
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <ul class="sidebar-items">
+        <!--nav sidebar-nav -->
+
+        <li id="todo-btn"class="btn btn-primary" style="width: 150px;">
+          Saved Courses
+        </li>
+        <li id="coursehistory-btn"class="btn btn-primary" style="width: 150px;">
+          Course History
+        </li>
+        <li id="professorhistory-btn"class="btn btn-primary" style="width: 150px;">
+          Professor History
+        </li>
+        <li id="browsemajor-btn"class="btn btn-primary" style="width: 150px;">
+          Browse Per Major
+        </li>
+        <li id="login-btn"class="btn btn-primary" style="width: 150px;">
+          Log In
+        </li>
+      </ul>
+    </nav>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="sidebar-btn glyphicon glyphicon-user" >
+      </div>
+      <div class="container">
+
+        <!-- Logo "MOOCs" -->
+        <div class="row">
+          <h1 class="logo">
+            M
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Cs
+          </h1>
+        </div>
+        <!-- End of Logo -->
+        <br><br>
+        <!-- Search Bar -->
+        <div class="row">
+          <div class="col-md-offset-6 searchBar">
+            <div class="input-group">
+              <input id="searchBarTextBox" type="text" class="form-control" placeholder="Search for courses here...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit" id="search-btn">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--End of Search Bar  -->
+        <br><br><br><br>
+        <!-- searchResTable -->
+        <table  id="coursetable" class="display table-hover table-bordered table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Start Date</th>
+              <th>Length</th>
+              <th>Site</th>
+            </tr>
+          </thead>
+          <tbody id="coursetable_body">
+          </tbody>
+        </table>
+        <!-- <button class="prev">Previous Page</button><button class="next">Next Page</button> -->
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

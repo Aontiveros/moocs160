@@ -1,0 +1,122 @@
+body {
+  position: relative;
+  overflow-x: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+body,
+html { height: 100%;}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {background-color: transparent;}
+
+table {
+  table-layout: fixed;
+  vertical-align: middle;
+}
+
+#searchResRow{
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+#table_entries{
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 150px;
+}
+
+.searchBar{
+  //  position:relative;
+  margin:auto;
+  padding:auto;
+  width:40vw;
+}
+
+.logo{
+  width:100px;
+  margin:auto;
+  min-width: 300px;
+  font-size: 4.2em;
+  text-shadow: 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.templateImage{
+  background-color: #000;
+  width:150px;
+  height:150px;
+}
+
+
+//
+// page wrapper for sidebar functionality
+//
+
+#wrapper {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  background-color: inherit;
+  z-index: 1000;
+  left: 220px;
+  width: 0;
+  height: 100%;
+  margin-left: -220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /*-webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;*/
+}
+
+#wrapper.toggled {
+  /*-webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;*/
+  padding-left: 220px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 220px;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  padding-top: 70px;
+  position: absolute;
+  margin-right: -220px;
+}
+
+
+//
+// sidebar navigation
+//
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 220px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-btn {
+  position: fixed;
+  top: 20px;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 15px;
+  font-size: 2.2em;
+  text-shadow: 5px 10px 0px rgba(0,0,0,0.2);
+}
+.sidebar-items{
+  line-height: 800%;
+}
