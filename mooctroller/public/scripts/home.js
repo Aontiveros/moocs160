@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('#logout-btn').hide();
     $('#createacc-btn').show();
   }
-  
+
   //sidebar toggle
   $('.sidebar-btn').click(function(){
     $('#wrapper').toggleClass('toggled');
@@ -69,26 +69,42 @@ $(document).ready(function () {
     //currentPage = page;
     //var currentPageData = jsonData.slice(page * 10, (page + 1) * 10);
     jQuery.each(page, function(i, val) {
+      //adds notification that a certificate paywall is active
+      var bypassAlert = "";
+      var url =
+      "<td>"+bypassAlert+"<a href=\""+ val.course_link +"\" target=\"_blank\">"+
+          "<div class=\"btn btn-sm btn-success center-block\">" +
+            val.site +
+          "</div> </a> </td>";
+
+      if(val.certificate == 'yes'){
+          bypassAlert = "Certification paywall has been bypassed:";
+      }
+
       if(isTableEmpty){
         $("#coursetable_body").append(
           "<tr id=\"searchResRow\">"+
           "<td><img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>" +
-          "<td id=\"c_title\">"+val.title +"</td>" +
-          "<td id=\"c_shortdesc\" ><div id=\"table_entries\">" + val.short_desc + "</div></td>" +
+          "<td id=\"c_title\"><h5><b>"+val.title +"</b></h5></td>" +
+          "<td ><div id=\"shortdesc\">" + val.short_desc + "</div></td>" +
           "<td style=\"word-break: break-all;\">"+val.category +"</td>" +
           "<td>"+val.start_date.substring(0,10) +"</td>" +
           "<td>"+val.course_length +"</td>" +
-          "<td>"+val.site +"</td></tr>");
+          "<td>"+val.profname +"</td>" +
+          url +"</tr>");
         }else{
-          //required fix for changing the table  (datatable plugin quirk)
+          //required fix for adding new data to table,
+          // datatable plugin wont change table content unless table is not empty)
           rowVals = [
-            "<img class=\"img-circle\" src=\""+val.course_image+"\" width=\"100px\" height=\"100px\">",
-            "<td id=\"c_title\">"+val.title +"</td>",
-            "<td id=\"c_shortdesc\" ><div id=\"table_entries\">" + val.short_desc + "</div></td>",
+            "<tr id=\"searchResRow\">",
+            "<td><img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>",
+            "<td id=\"c_title\"><h5><b>"+val.title +"</b></h5></td>",
+            "<td><div id=\"shortdesc\">" + val.short_desc + "</div></td>",
             "<td>"+val.category +"</td>",
             "<td>"+val.start_date.substring(0,10) +"</td>",
             "<td>"+val.course_length +"</td>" ,
-            "<td>"+val.site +"</td>"
+            "<td>"+val.profname +"</td>",
+            "<td><a href=\""+ val.course_link +"\" target=\"_blank\"><div class=\"btn btn-sm btn-success center-block\">"+val.site +"</div></a></td></tr>"
           ];
           table.row.add(rowVals);
         }
@@ -117,9 +133,9 @@ $(document).ready(function () {
   });
 
 
-function logOut(){
-  //set cookie to expired date
-  document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 UTC";
-  alert("Log out successful");
-  window.location.reload();
-}
+  function logOut(){
+    //set cookie to expired date
+    document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    alert("Log out successful");
+    window.location.reload();
+  }
