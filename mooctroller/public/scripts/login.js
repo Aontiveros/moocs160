@@ -3,7 +3,7 @@ var createCookie = function(email){
 };
 
 function goBackToSearch(){
-    window.location.href="index.html";
+    window.location.href="/";
 }
 
 function validate() {
@@ -13,7 +13,7 @@ function validate() {
        type: "POST",
         url: "/loginusr",
             contentType: "application/json",
-       
+
        data:JSON.stringify({
            username:email,
            password:password

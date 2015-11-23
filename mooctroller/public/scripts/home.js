@@ -96,15 +96,15 @@ $(document).ready(function () {
           //required fix for adding new data to table,
           // datatable plugin wont change table content unless table is not empty)
           rowVals = [
-            "<tr id=\"searchResRow\">",
-            "<td><img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>",
+            // "<tr id=\"searchResRow\">",
+            "<td><img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>" ,
             "<td id=\"c_title\"><h5><b>"+val.title +"</b></h5></td>",
             "<td><div id=\"shortdesc\">" + val.short_desc + "</div></td>",
             "<td>"+val.category +"</td>",
             "<td>"+val.start_date.substring(0,10) +"</td>",
             "<td>"+val.course_length +"</td>" ,
             "<td>"+val.profname +"</td>",
-            "<td><a href=\""+ val.course_link +"\" target=\"_blank\"><div class=\"btn btn-sm btn-success center-block\">"+val.site +"</div></a></td></tr>"
+            url //+"</tr>"
           ];
           table.row.add(rowVals);
         }
