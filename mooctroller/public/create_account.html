@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name ="viewport" content ="width =device-width, initial-scale =1">
+
+  <!-- JS Libs-->
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="scripts/create_account.js"></script>
+
+  <!-- CSS Libs -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 </head>
 <body>
   <h1>CreateAccount</h1>
@@ -13,7 +21,7 @@
      <input id="emailField" type="text" name="email">
     <h3>Password</h3>
     <input id="passField1" type="password" name="password1"></p>
-	<h3>Re-enter Password</h3>
+	  <h3>Re-enter Password</h3>
     <input id="passField2" type="password" name="password2"></p>
     <input type="button" value="Create Account" name="submitButton" onclick= "validate()">
   </form>
