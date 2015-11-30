@@ -48,8 +48,11 @@ $(document).ready(function () {
       var linkToCourse =
       "<td>"+bypassAlert+"<a href=\""+ val.course_link +"\" target=\"_blank\">"+
       "<div class=\"btn btn-sm btn-success center-block\">" +
-      val.site +
-      "</div> </a> </td>";
+      val.site +"</div> </a> " +
+      "<div id=\""+val.course_image+"\" class=\"btn btn-sm btn-primary center-block \"> Save </div> </td>";
+//
+//
+// "<div id=\"val.course_image\" class=\"btn btn-sm btn-primary center-block \"> save for later </div>
 
       if(val.certificate == 'yes'){
         bypassAlert = "Certification paywall has been bypassed:";
@@ -58,25 +61,26 @@ $(document).ready(function () {
       if(isTableEmpty){
         $("#coursetable_body").append(
           "<tr id=\"searchResRow\">"+
-          "<td><img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>" +
-          "<td id=\"c_title\"><h5><b>"+val.title +"</b></h5></td>" +
+          "<td><img class=\"img-circle\" src=\""+ val.course_image + "\" width=\"100px\" height=\"100px\"></td>" +
+          "<td id=\"c_title\"><h5><b>" + val.title + "</b></h5></td>" +
           "<td ><div id=\"shortdesc\">" + val.short_desc + "</div></td>" +
-          "<td style=\"word-break: break-all;\">"+val.category +"</td>" +
-          "<td>"+val.start_date.substring(0,10) +"</td>" +
-          "<td>"+val.course_length +"</td>" +
-          "<td>"+val.profname +"</td>" +
-          linkToCourse +"</tr>");
+          "<td style=\"word-break: break-all;\">" + val.category + "</td>" +
+          "<td>"+val.start_date.substring(0,10) + "</td>" +
+          "<td>"+val.course_length + "</td>" +
+          "<td>"+val.profname + "</td>" +
+          linkToCourse + "</tr>");
+
         }else{
           //required fix for adding new data to table,
           // datatable plugin wont change table content unless table is not empty)
           rowVals = [
-            "<td><img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\"></td>" ,
-            "<td id=\"c_title\"><h5><b>"+val.title +"</b></h5></td>",
-            "<td><div id=\"shortdesc\">" + val.short_desc + "</div></td>",
-            "<td>"+val.category +"</td>",
-            "<td>"+val.start_date.substring(0,10) +"</td>",
-            "<td>"+val.course_length +"</td>" ,
-            "<td>"+val.profname +"</td>",
+            "<img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\">" ,
+            "<div id=\"c_title\"><h5><b>"+val.title +"</b></h5></div>",
+            "<div id=\"shortdesc\">" + val.short_desc + "</div>",
+            "<div>"+val.category +"</div>",
+            "<div>"+val.start_date.substring(0,10) +"</div>",
+            "<div>"+val.course_length +"</div>" ,
+            "<div>"+val.profname +"</div>",
             linkToCourse
           ];
           table.row.add(rowVals);
@@ -154,7 +158,7 @@ $(document).ready(function () {
 
       $('#todo-btn').click(function(){
         if(document.cookie.indexOf('user') === 0){
-          window.location.href = "../feature_pages/todo.html";
+          window.location.href = "../feature_pages/saved_courses.html";
         }else{
           window.location.href = "../login.html";
         }
