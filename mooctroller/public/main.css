@@ -1,3 +1,4 @@
+
 body {
   position: relative;
   overflow-x: hidden;
@@ -6,6 +7,7 @@ body {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+
 body,
 html { height: 100%;}
 .nav .open > a,
@@ -29,8 +31,48 @@ table {
   overflow-x: hidden;
   height: 150px;
 }
+
 #c_title{
   color:rgb(0,86,199);
+}
+
+.save-btn{
+  position: fixed;
+  z-index: 1;
+  top: 40vh;
+  right: 20px;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 50px;
+  font-size: 3.2em;
+  text-shadow: 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.delete_course-btn{
+  position: fixed;
+  z-index: 2;
+  top: 80vh;
+  right: 20px;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 50px;
+  font-size: 3.2em;
+  text-shadow: 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.completed_course-btn{
+  position: fixed;
+  z-index: 1;
+  top: 50vh;
+  right: 20px;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 50px;
+  font-size: 3.2em;
+  text-shadow: 5px 10px 0px rgba(0,0,0,0.2);
 }
 
 .searchBar{
@@ -59,6 +101,16 @@ table {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.btn-glyphicon {
+  padding:8px;
+  background:#ffffff;
+  margin-right:4px;
+}
+.icon-btn {
+  padding: 1px 15px 3px 2px;
+  border-radius:50px;
 }
 
 
