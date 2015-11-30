@@ -3,24 +3,25 @@ var currentPage = 0;
 var jsonData = null;
 $(document).ready(function () {
 
-  /*
-  if cookie is set login and create account are hidden
-  if cookie is not set both of those page links are present
-  */
-  if (document.cookie.indexOf('user') === 0){
-    // window.alert("is: "+document.cookie);
-    $('#login-btn').hide();
-    $('#logout-btn').show();
-    $('#createacc-btn').hide();
-  }else{
-    // window.alert("NOT: "+document.cookie);
-    $('#login-btn').show();
-    $('#logout-btn').hide();
-    $('#createacc-btn').show();
-  }
+  //
+  //search button handler
+  //
+  $('#search-btn').click(function(){
+    var searchValue = $('#searchBarTextBox').val();
+    xml.open("GET", "/search/" + searchValue, true);
+    xml.send();
+  });
+  
+  $('#searchBarTextBox').on('keyup', function(e) {
+    if (e.which == 13) {
+      $('#search-btn').click();
+    }
+  });
 
   //
   // response data from database
+  //
+  // can be replaced with jquery .ajax call
   //
   xml.onreadystatechange = function() {
     if (xml.readyState == 4) {
@@ -49,10 +50,8 @@ $(document).ready(function () {
       "<td>"+bypassAlert+"<a href=\""+ val.course_link +"\" target=\"_blank\">"+
       "<div class=\"btn btn-sm btn-success center-block\">" +
       val.site +"</div> </a> " +
-      "<div id=\""+val.course_image+"\" class=\"btn btn-sm btn-primary center-block \"> Save </div> </td>";
-//
-//
-// "<div id=\"val.course_image\" class=\"btn btn-sm btn-primary center-block \"> save for later </div>
+      "<div id=\"savecourse-btn\" class=\"btn btn-sm btn-primary center-block savecourse-btn \"> Save For Later</div> </td>";
+
 
       if(val.certificate == 'yes'){
         bypassAlert = "Certification paywall has been bypassed:";
@@ -64,24 +63,24 @@ $(document).ready(function () {
           "<td><img class=\"img-circle\" src=\""+ val.course_image + "\" width=\"100px\" height=\"100px\"></td>" +
           "<td id=\"c_title\"><h5><b>" + val.title + "</b></h5></td>" +
           "<td ><div id=\"shortdesc\">" + val.short_desc + "</div></td>" +
-          "<td style=\"word-break: break-all;\">" + val.category + "</td>" +
-          "<td>"+val.start_date.substring(0,10) + "</td>" +
-          "<td>"+val.course_length + "</td>" +
-          "<td>"+val.profname + "</td>" +
-          linkToCourse + "</tr>");
+          "<td style=\"word-break: break-all;\"><div>" + val.category + "</div></td>" +
+          "<td><div>"+val.start_date.substring(0,10) + "</div></td>" +
+          "<td><div>"+val.course_length + "</div></td>" +
+          "<td><div>"+val.profname + "</div></td>" +
+          "<div>"+ linkToCourse + "</div></tr>");
 
         }else{
           //required fix for adding new data to table,
           // datatable plugin wont change table content unless table is not empty)
           rowVals = [
-            "<img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\">" ,
+            "<img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\">",
             "<div id=\"c_title\"><h5><b>"+val.title +"</b></h5></div>",
             "<div id=\"shortdesc\">" + val.short_desc + "</div>",
             "<div>"+val.category +"</div>",
             "<div>"+val.start_date.substring(0,10) +"</div>",
             "<div>"+val.course_length +"</div>" ,
             "<div>"+val.profname +"</div>",
-            linkToCourse
+            "<div>"+ linkToCourse +"</div>"
           ];
           table.row.add(rowVals);
         }
@@ -107,103 +106,35 @@ $(document).ready(function () {
       });
     }
 
+    //
+    // 'save course for later' button handler
+    //
+    // (dynamically loaded button has special click handler)
+    //
+    $('#coursetable tbody').on('click', "#savecourse-btn", function() {
+      if(document.cookie.indexOf('user')=== 0){
+        var postData = JSON.stringify({
+          priority:null,
+          usr: document.cookie,
+          data: table.row( $(this).parents('tr') ).data()
+        });
+        //alert(table.row( $(this).parents('tr') ).data());
 
-
-      //////////////////////////
-      //
-      //
-      //  Button Handlers
-      //
-      //
-      //////////////////////////
-      //sidebar toggle
-      $('.sidebar-btn').click(function(){
-        $('#wrapper').toggleClass('toggled');
-      });
-
-      //
-      //search button handler
-      //
-      $('#search-btn').click(function(){
-        var searchValue = $('#searchBarTextBox').val();
-        xml.open("GET", "/search/" + searchValue, true);
-        xml.send();
-      });
-
-      //
-      // watching logo click
-      //
-      $('logo').click(function() {
-        window.location.href="";
-      });
-
-      //
-      // watching enter key for searching
-      //
-      $("#searchBarTextBox").keyup(function(event){
-        if(event.keyCode == 13){
-          $("#search-btn").click();
-        }
-      });
-      //
-      // login and create buttons
-      //
-      $('#createacc-btn').click(function(){
-        window.location.href = "../create_account.html";
-      });
-
-      $('#login-btn').click(function(){
+        $.ajax({
+          url:"/save_course_data",
+          type: "POST",
+          contentType: "application/json",
+          data: postData,
+          success: function() {
+            alert('Course Saved!');
+          },
+          error: function(){
+            alert('Course did not save correctly, please contact team 1 @ edmunddao@gmail.com');
+          }
+        });
+      }else{
         window.location.href = "../login.html";
-      });
-
-      $('#todo-btn').click(function(){
-        if(document.cookie.indexOf('user') === 0){
-          window.location.href = "../feature_pages/saved_courses.html";
-        }else{
-          window.location.href = "../login.html";
-        }
-      });
-
-      $('#coursehistory-btn').click(function(){
-        if(document.cookie.indexOf('user') === 0){
-          window.location.href = "../feature_pages/chist.html";
-        }else{
-          window.location.href = "../login.html";
-        }
-      });
-
-      $('#professorhistory-btn').click(function(){
-        if(document.cookie.indexOf('user')=== 0){
-          window.location.href = "../feature_pages/phist.html";
-        }else{
-          window.location.href = "../login.html";
-        }
-      });
-
-      $('#browsemajor-btn').click(function(){
-        if(document.cookie.indexOf('usr')=== 0){
-          console.log(document.cookie);
-          window.location.href = "../feature_pages/browse.html";
-        }else{
-          window.location.href = "../login.html";
-        }
-      });
-
-      //////////////////////////
-      //
-      //
-      //  End of Button Handlers
-      //
-      //
-      //////////////////////////
-
+      }
+    });
 
   });
-
-
-  function logOut(){
-    //set cookie to expired date
-    document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"; //user=; why is this included in the cookie after logout?
-    alert("Log out successful!");
-    window.location.reload();
-  }

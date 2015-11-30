@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name ="viewport" content ="width = device-width, initial-scale =1">
+
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../scripts/home.js"></script>
+  <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/rowreorder/1.1.0/js/dataTables.rowReorder.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../main.css">
-  <title>manooc</title>
+  <link rel="stylesheet"  href="https://cdn.datatables.net/rowreorder/1.1.0/css/rowReorder.dataTables.min.css">
+
+  <script type="text/javascript" src="/scripts/saved_courses.js"></script>
+  <script type="text/javascript" src="/scripts/globally_required_source.js"></script>
+
+  <link rel="stylesheet" href="main.css">
+
+  <title>Saved Courses</title>
 </head>
 <body>
   <div id="wrapper">
@@ -45,6 +54,12 @@
     <div id="page-content-wrapper">
       <div class="sidebar-btn glyphicon glyphicon-user btn btn-lg" >
       </div>
+      <div class="save-btn glyphicon glyphicon-floppy-disk btn btn-lg">
+      </div>
+      <div class="completed_course-btn glyphicon glyphicon-ok btn btn-lg">
+      </div>
+      <div class="delete_course-btn glyphicon glyphicon-trash btn btn-lg">
+      </div>
       <div class="container">
 
         <!-- Logo "MOOCs" -->
@@ -58,25 +73,12 @@
         </div>
         <!-- End of Logo -->
         <br><br>
-        <!-- Search Bar -->
-        <div class="row">
-          <div class=" center-block searchBar">
-            <div class="input-group">
-              <input id="searchBarTextBox" type="text" class="form-control" placeholder="Search for courses here...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit" id="search-btn">
-                  <span class="glyphicon glyphicon-search"></span>
-                </button>
-              </span>
-            </div>
-          </div>
-        </div>
-        <!--End of Search Bar  -->
-        <br><br><br><br>
+        <br><br>
         <!-- searchResTable -->
         <table  id="coursetable" class="display table-hover table-bordered table">
           <thead>
             <tr>
+              <th>Priority</th>
               <th>Image</th>
               <th>Title</th>
               <th>Description</th>
@@ -84,16 +86,14 @@
               <th>Start Date</th>
               <th>Length</th>
               <th>Professor</th>
-              <th>Site</th>
+              <th>Site</th
             </tr>
           </thead>
           <tbody id="coursetable_body">
           </tbody>
         </table>
-        <div></div>
       </div>
     </div>
   </div>
-
 </body>
 </html>
