@@ -29,17 +29,17 @@ $(document).ready(function () {
         var linkToCourse = "<a href=\"" + rowdata[7].substring(rowdata[7].indexOf('https'),rowdata[7].indexOf('target')-1) + "\" target=\"_blank\">"+
         "<div class=\"btn btn-sm btn-success center-block\">Course Site</div> </a>";
 
-
-        console.log(
-          "\n------------------------" +rowdata[0] +
-          "\n------------------------" +rowdata[1]+
-          "\n------------------------" +rowdata[2]+
-          "\n------------------------" +rowdata[3]+
-          "\n------------------------" +rowdata[4]+
-          "\n------------------------" +rowdata[5]+
-          "\n------------------------" +rowdata[6]+
-          "\n------------------------" +rowdata[7]
-        );
+        //
+        // console.log(
+        //   "\n------------------------" +rowdata[0] +
+        //   "\n------------------------" +rowdata[1]+
+        //   "\n------------------------" +rowdata[2]+
+        //   "\n------------------------" +rowdata[3]+
+        //   "\n------------------------" +rowdata[4]+
+        //   "\n------------------------" +rowdata[5]+
+        //   "\n------------------------" +rowdata[6]+
+        //   "\n------------------------" +rowdata[7]
+        // );
 
         table.row.add([
           JSON.stringify(val.priority),
@@ -59,16 +59,16 @@ $(document).ready(function () {
         console.log("this is c |"+c+"|");
         rowdata = c.split('",');
 
-        console.log(
-          "\n-----|-------------------" +rowdata[0] +
-          "\n-----|-------------------" +rowdata[1]+
-          "\n-----|-------------------" +rowdata[2]+
-          "\n-----|-------------------" +rowdata[3]+
-          "\n-----|-------------------" +rowdata[4]+
-          "\n-----|-------------------" +rowdata[5]+
-          "\n-----|-------------------" +rowdata[6]+
-          "\n-----|-------------------" +rowdata[7]
-        );
+        // console.log(
+        //   "\n-----|-------------------" +rowdata[0] +
+        //   "\n-----|-------------------" +rowdata[1]+
+        //   "\n-----|-------------------" +rowdata[2]+
+        //   "\n-----|-------------------" +rowdata[3]+
+        //   "\n-----|-------------------" +rowdata[4]+
+        //   "\n-----|-------------------" +rowdata[5]+
+        //   "\n-----|-------------------" +rowdata[6]+
+        //   "\n-----|-------------------" +rowdata[7]
+        // );
 
         var linkToCourse = "<a href=\"" + rowdata[7].substring(rowdata[7].indexOf('https'),rowdata[7].indexOf('target')-1) + "\" target=\"_blank\">"+
         "<div class=\"btn btn-sm btn-success center-block\">Course Site</div> </a>";
@@ -140,9 +140,6 @@ $(document).ready(function () {
 
   });
 
-  // 7) when deleted add to course history with text box for comment
-  // 8) wehn deleted add prof. image and name to another table, with text box for comment
-
   function save_courses(d){
     for(i = 0; i < d.length; i++){
       var postData = JSON.stringify({
@@ -160,7 +157,4 @@ $(document).ready(function () {
 
     }
   }
-
-
-
 });

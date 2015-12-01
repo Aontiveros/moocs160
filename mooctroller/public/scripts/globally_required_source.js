@@ -68,7 +68,7 @@ if (document.cookie.indexOf('user') === 0){
   });
 
   $('#browsemajor-btn').click(function(){
-    if(document.cookie.indexOf('usr')=== 0){
+    if(document.cookie.indexOf('user')=== 0){
       console.log(document.cookie);
       window.location.href = "../browse.html";
     }else{
@@ -84,9 +84,9 @@ if (document.cookie.indexOf('user') === 0){
   //
   //////////////////////////
 });
+
 function logOut(){
   //set cookie to expired date
-  document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"; //user=; why is this included in the cookie after logout?
-  alert("Log out successful!");
-  window.location.reload();
+  document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+  window.location.href = "/";
 }
