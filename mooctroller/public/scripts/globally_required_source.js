@@ -70,7 +70,7 @@ if (document.cookie.indexOf('user') === 0){
   $('#browsemajor-btn').click(function(){
     if(document.cookie.indexOf('user')=== 0){
       console.log(document.cookie);
-      window.location.href = "../browse.html";
+      window.location.href = "../major_courses.html";
     }else{
       window.location.href = "../login.html";
     }
