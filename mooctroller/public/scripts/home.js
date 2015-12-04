@@ -11,7 +11,7 @@ $(document).ready(function () {
     xml.open("GET", "/search/" + searchValue, true);
     xml.send();
   });
-  
+
   $('#searchBarTextBox').on('keyup', function(e) {
     if (e.which == 13) {
       $('#search-btn').click();
@@ -47,21 +47,21 @@ $(document).ready(function () {
       var bypassAlert = "";
       //button to link to course
       var linkToCourse =
-      "<td>"+bypassAlert+"<a href=\""+ val.course_link +"\" target=\"_blank\">"+
+      "<td><p>"+bypassAlert+"</p><a href=\""+ val.course_link +"\" target=\"_blank\">"+
       "<div class=\"btn btn-sm btn-success center-block\">" +
       val.site +"</div> </a> " +
       "<div id=\"savecourse-btn\" class=\"btn btn-sm btn-primary center-block savecourse-btn \"> Save For Later</div> </td>";
 
 
-      if(val.certificate == 'yes'){
-        bypassAlert = "Certification paywall has been bypassed:";
+      if(val.certificate === 'yes'){
+        bypassAlert = "Certification paywall has been bypassed: ";
       }
 
       if(isTableEmpty){
         $("#coursetable_body").append(
           "<tr id=\"searchResRow\">"+
           "<td><img class=\"img-circle\" src=\""+ val.course_image + "\" width=\"100px\" height=\"100px\"></td>" +
-          "<td id=\"c_title\"><h5><b>" + val.title + "</b></h5></td>" +
+          "<td id=\"c_title\"><h2><b>" + val.title + "</b></h2></td>" +
           "<td ><div id=\"shortdesc\">" + val.short_desc + "</div></td>" +
           "<td style=\"word-break: break-all;\"><div>" + val.category + "</div></td>" +
           "<td><div>"+val.start_date.substring(0,10) + "</div></td>" +
@@ -74,7 +74,7 @@ $(document).ready(function () {
           // datatable plugin wont change table content unless table is not empty)
           rowVals = [
             "<img class=\"img-circle\" src=\""+val.course_image + "\" width=\"100px\" height=\"100px\">",
-            "<div id=\"c_title\"><h5><b>"+val.title +"</b></h5></div>",
+            "<div id=\"c_title\"><h2><b>"+val.title +"</b></h2></div>",
             "<div id=\"shortdesc\">" + val.short_desc + "</div>",
             "<div>"+val.category +"</div>",
             "<div>"+val.start_date.substring(0,10) +"</div>",
@@ -102,7 +102,17 @@ $(document).ready(function () {
       //ensures the datatable plugin is initialized only once
       table = $('#coursetable').DataTable({
         "bProcessing": true,
-        "bDeferRender": true
+        "bDeferRender": true,
+        "columns": [
+          null,
+          { "width": "20%" },
+          { "width": "20%" },
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       });
     }
 
@@ -118,7 +128,6 @@ $(document).ready(function () {
           usr: document.cookie,
           data: table.row( $(this).parents('tr') ).data()
         });
-        //alert(table.row( $(this).parents('tr') ).data());
 
         $.ajax({
           url:"/save_course_data",

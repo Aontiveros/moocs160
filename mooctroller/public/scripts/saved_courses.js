@@ -1,20 +1,34 @@
 
 $(document).ready(function () {
+  //
+  $(".alert-message").alert();
+  window.setTimeout(function() { $(".alert-message").alert('close'); }, 2000);
+
 
   var user = document.cookie.substring(5,document.cookie.length);
 
   $.get("/saved_course_data/" + user, function(data, err){
-    addToCourseTable(data);
+    addToSavedCourseTable(data);
   });
-
 
   var table;
   //
   //parsing data from db to table rows
   //
-  function addToCourseTable(courses){
+  function addToSavedCourseTable(courses){
     table = $('#coursetable').DataTable({
-      rowReorder:true
+      rowReorder:true,
+      "columns": [
+        null,
+        { "width": "10%" },
+        { "width": "20%" },
+        { "width": "20%" },
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
     });
 
     jQuery.each(courses, function(i, val) {
@@ -22,24 +36,14 @@ $(document).ready(function () {
       //data is a different format after reordering rows, must be handled
       var rowdata ="",c = "";
       if(JSON.stringify(jsonData.indexOf('['))<0){
+        //working with json string rather than object
+        //TODO:reimplement without string parsing
         c = jsonData.replace(',','>,');
-
         rowdata = c.split(">,");
 
         var linkToCourse = "<a href=\"" + rowdata[7].substring(rowdata[7].indexOf('https'),rowdata[7].indexOf('target')-1) + "\" target=\"_blank\">"+
         "<div class=\"btn btn-sm btn-success center-block\">Course Site</div> </a>";
 
-        //
-        // console.log(
-        //   "\n------------------------" +rowdata[0] +
-        //   "\n------------------------" +rowdata[1]+
-        //   "\n------------------------" +rowdata[2]+
-        //   "\n------------------------" +rowdata[3]+
-        //   "\n------------------------" +rowdata[4]+
-        //   "\n------------------------" +rowdata[5]+
-        //   "\n------------------------" +rowdata[6]+
-        //   "\n------------------------" +rowdata[7]
-        // );
 
         table.row.add([
           JSON.stringify(val.priority),
@@ -59,18 +63,7 @@ $(document).ready(function () {
         console.log("this is c |"+c+"|");
         rowdata = c.split('",');
 
-        // console.log(
-        //   "\n-----|-------------------" +rowdata[0] +
-        //   "\n-----|-------------------" +rowdata[1]+
-        //   "\n-----|-------------------" +rowdata[2]+
-        //   "\n-----|-------------------" +rowdata[3]+
-        //   "\n-----|-------------------" +rowdata[4]+
-        //   "\n-----|-------------------" +rowdata[5]+
-        //   "\n-----|-------------------" +rowdata[6]+
-        //   "\n-----|-------------------" +rowdata[7]
-        // );
-
-        var linkToCourse = "<a href=\"" + rowdata[7].substring(rowdata[7].indexOf('https'),rowdata[7].indexOf('target')-1) + "\" target=\"_blank\">"+
+        var linkToCourse = "<a href=\"" + rowdata[7].substring( rowdata[7].indexOf('https'),rowdata[7].indexOf('target')-1) + "\" target=\"_blank\">"+
         "<div class=\"btn btn-sm btn-success center-block\">Course Site</div> </a>";
 
         table.row.add([
@@ -92,10 +85,8 @@ $(document).ready(function () {
   $('.save-btn').click(function(){
 
     var d = table.rows().data();
-
     $.post("/reset_courses/" + user, function(data, err){
       save_courses(d);
-      alert("Changes Saved");
     });
   });
 
@@ -107,10 +98,10 @@ $(document).ready(function () {
       contentType: "application/json",
       // data: table.row(0).data(),
       success: function() {
-        alert('Course removed.');
+        console.log('Course removed.');
       },
       error: function(err){
-        alert('error'+err);
+        console.log('error'+err);
       }
     });
 
@@ -120,18 +111,16 @@ $(document).ready(function () {
 
   $('.completed_course-btn').click(function(){
     //add to course history
-    //alert(table.row( $(this).parents('tr') ).data());
-
     $.ajax({
       url:"/completed_course/"+user,
       type: "POST",
       contentType: "application/json",
-      // data: table.row(0).data(),
+      data: JSON.stringify(table.row(0).data()),
       success: function() {
-        alert('Course added to course history! Good Job!');
+        console.log('Course added to course history! Good Job!');
       },
       error: function(err){
-        alert('error'+err);
+        console.log('error'+err);
       }
     });
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name ="viewport" content ="width = device-width, initial-scale =1">
+
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/rowreorder/1.1.0/js/dataTables.rowReorder.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <script type="text/javascript" src="/scripts/chist.js"></script>
+  <script type="text/javascript" src="/scripts/globally_required_source.js"></script>
+
+  <link rel="stylesheet" href="main.css">
+
+  <title>Saved Courses</title>
+</head>
+<body>
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top " id="sidebar-wrapper" role="navigation">
+      <ul class="sidebar-items">
+        <!--sidebar-nav -->
+        <li id="todo-btn"class="btn btn-primary" style="width: 150px;">
+          Saved Courses
+        </li>
+        <li id="coursehistory-btn"class="btn btn-primary" style="width: 150px;">
+          Course History
+        </li>
+        <li id="browsemajor-btn"class="btn btn-primary" style="width: 150px;">
+          Browse Majors
+        </li>
+        <li id="login-btn"class="btn btn-success" style="width: 150px;">
+          Log In
+        </li>
+        <li id="logout-btn"class="btn btn-warning" style="width: 150px;" onclick="logOut()">
+          Log Out
+        </li>
+        <li id="createacc-btn"class="btn btn-success" style="width: 150px;">
+          Create Account
+        </li>
+      </ul>
+    </nav>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="sidebar-btn glyphicon glyphicon-user btn btn-lg" >
+      </div>
+      <div class="container">
+
+        <!-- Logo "MOOCs" -->
+        <div class="row">
+          <h1 class="logo btn center-block">
+            M
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Cs
+          </h1>
+        </div>
+        <!-- End of Logo -->
+        <br><br>
+        <!-- searchResTable -->
+        <table  id="coursetable" class="display table-hover table-bordered table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Start Date</th>
+              <th>Length (weeks)</th>
+              <th>Site</th
+            </tr>
+          </thead>
+          <tbody id="coursetable_body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -29,11 +29,12 @@ table {
 #shortdesc{
   overflow: scroll;
   overflow-x: hidden;
-  height: 150px;
+  height: 200px;
 }
 
 #c_title{
-  color:rgb(0,86,199);
+  text-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+
 }
 
 .save-btn{
@@ -41,8 +42,6 @@ table {
   z-index: 1;
   top: 40vh;
   right: 20px;
-  border-style: solid;
-  border-radius: 10px;
   padding: 10px;
   margin-left: 50px;
   font-size: 3.2em;
@@ -54,8 +53,6 @@ table {
   z-index: 2;
   top: 80vh;
   right: 20px;
-  border-style: solid;
-  border-radius: 10px;
   padding: 10px;
   margin-left: 50px;
   font-size: 3.2em;
@@ -67,8 +64,6 @@ table {
   z-index: 1;
   top: 50vh;
   right: 20px;
-  border-style: solid;
-  border-radius: 10px;
   padding: 10px;
   margin-left: 50px;
   font-size: 3.2em;
@@ -76,7 +71,6 @@ table {
 }
 
 .searchBar{
-  //  position:relative;
   margin:auto;
   padding:auto;
   width:40vw;
@@ -111,6 +105,11 @@ table {
 .icon-btn {
   padding: 1px 15px 3px 2px;
   border-radius:50px;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 
@@ -120,6 +119,11 @@ table {
 
 #wrapper {
   padding-left: 0;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #sidebar-wrapper {
@@ -131,22 +135,30 @@ table {
   margin-left: -220px;
   overflow-y: auto;
   overflow-x: hidden;
-  /*-webkit-transition: all 0.5s ease;
+
+  border-style: solid;
+  border-radius: 10px;
+  -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;*/
+  transition: all 0.5s ease;
 }
 
 #wrapper.toggled {
-  /*-webkit-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;*/
+  transition: all 0.5s ease;
   padding-left: 220px;
 }
 
 #wrapper.toggled #sidebar-wrapper {
   width: 220px;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #page-content-wrapper {
@@ -154,6 +166,11 @@ table {
   padding-top: 70px;
   position: absolute;
   margin-right: -220px;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 

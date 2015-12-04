@@ -9,28 +9,28 @@ function goBackToSearch(){
 var minPassLength = 8;
 function verifyPassword(pass1, pass2){
 	var valid = true;
-	
+
 	if (pass1 !== pass2){
 		valid = false;
 		alert("Passwords do not match");
 	}
-	
+
 	if (pass1.length < minPassLength || pass2.length < minPassLength ){
 		valid = false;
 		alert("Minimum password length is 8 characters");
 	}
-	
+
 	return valid;
 }
 
 var emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 function verifyEmail(email){
 	var valid = emailRegex.test(email);
-	
+
 	if (!valid){
 		alert("Email address is not valid");
 	}
-	
+
 	return valid;
 }
 
@@ -45,7 +45,7 @@ function validate() {
                 type: "POST",
                     url: "/createusr",
                         contentType: "application/json",
-                
+
                 data:JSON.stringify({
                     username:email,
                     password:pass1
@@ -60,5 +60,4 @@ function validate() {
                 }
             });
         }
-
 }

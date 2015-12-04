@@ -5,873 +5,928 @@
     border-collapse: collapse !important;
      border: 0px solid black !important;
 }
+.universities{
+   cursor: pointer;
+}
 </style>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta name ="viewport" content ="width =device-width, initial-scale =1">
-
-  <!-- JS Libs-->
-  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="scripts/create_account.js"></script>
+  <meta name ="viewport" content ="width = device-width, initial-scale =1">
   <script>
     $('.collapse').on('show.bs.collapse', function () {
       $('.collapse.in').collapse('hide');
     });
   </script>
-  <!-- CSS Libs -->
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/rowreorder/1.1.0/js/dataTables.rowReorder.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"> -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet"  href="https://cdn.datatables.net/rowreorder/1.1.0/css/rowReorder.dataTables.min.css"> -->
 
+  <script type="text/javascript" src="/scripts/saved_courses.js"></script>
+  <script type="text/javascript" src="/scripts/globally_required_source.js"></script>
+
+  <link rel="stylesheet" href="main.css">
+
+  <title>Saved Courses</title>
 </head>
 <body>
-  <h1>View programs from different universities</h1>
-  <h2>Universities</h2>
-  <table class="table table-condensed" style="border-collapse:collapse;">
-  <thead>
-      <tr>
-          <th>Image</th>
-          <th>University</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr data-toggle="collapse" data-target=".demo1">
-          <td><img src="http://www.sjsujudo.org/wp-content/uploads/2014/02/SJSU-Logo.gif" alt="San Jose State" style="width:115px;height:75px;"></td>
-          <td>San Jose State</td>
-      </tr>
-      <tr class="hiddenRow">
-        <td class="hiddenRow">
-            <div class="collapse demo1">
-              <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46045.html">Aerospace Studies</a>
-            </div>
-        </td>
-        <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46044.html">Aerospace Engineering</a>
-              </div>
-        </td>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46046.html">African American Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46095.html">African Studies</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46099.html">American Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46074.html">Animation and Illustration</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46047.html">Anthropology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46049.html">Applied Sciences</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46051.html">Art</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46050.html">Art Education</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46052.html">Art History</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46148.html">Asian American Studies</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46100.html">Asian Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46139.html">Astronomy</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46068.html">Audiology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46054.html">Aviation</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46055.html">Biology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46060.html">Biomedical Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46056.html">Botany</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46061.html">Buisiness Graduate Programs</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46043.html">Accounting and Finance</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46120.html">Management Information Systems</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46121.html">Marketing</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46137.html">School of Management</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46092.html">Global Innovation and Leadership</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46062.html">Chemical Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46063.html">Chemistry</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46064.html">Child and Adolescent Development</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46162.html">Chinese</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46065.html">Civil and Environmental Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46066.html">Communication Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46070.html">Computer Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46072.html">Computer Science</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46073.html">Counselor Education</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46101.html">Creative Arts</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46130.html">Dance</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46076.html">Design</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46079.html">Economics</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46080.html">EDD Leadership Program</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46081.html">Education</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46082.html">Educational Administration</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46083.html">Electrical Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46084.html">Elementary Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46087.html">English</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46086.html">English Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46057.html">Entomology</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46086.html">English Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46057.html">Entomology</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46088.html">Environmental Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46163.html">Foreign Language Education</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46164.html">Foreign Language</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46113.html">Forensic Science</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46165.html">French</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46089.html">General Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46090.html">Geology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46091.html">Geography</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46166.html">German</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46153.html">Gerontology</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46107.html">Global Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46075.html">Graphic Design</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46167.html">Greek</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46093.html">Health Professions</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46094.html">Health Science</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46093.html">Hebrew</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46096.html">History</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46098.html">Hospitality Management</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46096.html">History</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46098.html">Hospitality Management</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46102.html">Humanities</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46105.html">Humanities and The Arts</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46106.html">Industrial and Systems Engineering</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46105.html">Industrial Design</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46108.html">Intercollegiate Athletics</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46078.html">Interior Design</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46169.html">Italian</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46170.html">Japanese</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46097.html">Jewish Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46110.html">Journalism</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46114.html">Justice Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46115.html">Kinesiology</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46116.html">Kinesiology Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46171.html">Latin</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46118.html">Linguistics</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46171.html">Linguistics and Language Development</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46129.html">Marine Science</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46111.html">Mass Communication</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46122.html">Materials Engineering</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46124.html">Math Education</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46122.html">Math</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46125.html">Mechanical Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46122.html">Math</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46125.html">Mechanical Engineering</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46126.html">Meteorology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46127.html">Mexican American Studies</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46058.html">Microbiology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46103.html">Middle East Studies</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46128.html">Military Science</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46132.html">Music</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46131.html">Music Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46133.html">Nursing</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46131.html">Nutrition, Food Science and Packaging</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46136.html">Occupational Therapy</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46048.html">Organizational Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46135.html">Packaging</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46172.html">Persian</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46138.html">Philosophy</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46053.html">Photography</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46140.html">Physics</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46142.html">Political Science</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46173.html">Portguese</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46143.html">Psychology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46141.html">Public Administration</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46112.html">Public Relations</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46157.html">Radio - Television - Film</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46145.html">Recreation and Leisure Study</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46104.html">Religious Studies</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46117.html">School of Information</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46147.html">Science</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46146.html">Science Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46149.html">Social Science</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46151.html">Social Science All College</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46152.html">Social Science Education</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46154.html">Social Work</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46155.html">Sociology</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46071.html">Software Engineering</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46174.html">Spanish</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46156.html">Special Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46067.html">Speech Education</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46069.html">Speech Pathology</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46144.html">Statistics</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46085.html">Teacher Education</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46159.html">Technology</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46158.html">Theatre Arts</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46160.html">University Studies</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46161.html">Urban and Regional Planning</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46175.html">Vietnamese</a>
-              </div>
-          </td>
-      </tr>
-      <tr class="hiddenRow">
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46175.html">Women's Studies</a>
-              </div>
-          </td>
-          <td class="hiddenRow">
-              <div class="collapse demo1">
-                <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46059.html">Zoology</a>
-              </div>
-          </td>
-      </tr>
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top " id="sidebar-wrapper" role="navigation">
+      <ul class="sidebar-items">
+        <!--sidebar-nav -->
+        <li id="todo-btn"class="btn btn-primary" style="width: 150px;">
+          Saved Courses
+        </li>
+        <li id="coursehistory-btn"class="btn btn-primary" style="width: 150px;">
+          Course History
+        </li>
+        <li id="browsemajor-btn"class="btn btn-primary" style="width: 150px;">
+          Browse Majors
+        </li>
+        <li id="login-btn"class="btn btn-success" style="width: 150px;">
+          Log In
+        </li>
+        <li id="logout-btn"class="btn btn-warning" style="width: 150px;" onclick="logOut()">
+          Log Out
+        </li>
+        <li id="createacc-btn"class="btn btn-success" style="width: 150px;">
+          Create Account
+        </li>
+      </ul>
+    </nav>
+    <!-- /#sidebar-wrapper -->
 
-      </tr>
-  </tbody>
-</table>
-<br><br>
-  <input type="button" value="Back" name="backButton" onclick="goBackToSearch()">
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="sidebar-btn glyphicon glyphicon-user btn btn-lg" >
+      </div>
+      <div class="container">
+
+        <!-- Logo "MOOCs" -->
+        <div class="row">
+          <h1 class="logo btn center-block">
+            M
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Cs
+          </h1>
+        </div>
+        <!-- End of Logo -->
+        <br><br>
+        <br><br>
+          <div class="center-block"><h1>View programs from different universities</h1></div>
+          <div class="center-block"><h2>Universities</h2></div>
+          <table class="table table-condensed table-bordered universities" style="border-collapse:collapse;">
+          <thead>
+              <tr>
+                  <th>Image</th>
+                  <th>University</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr data-toggle="collapse" data-target=".demo1">
+                  <td><img src="http://www.sjsujudo.org/wp-content/uploads/2014/02/SJSU-Logo.gif" alt="San Jose State" style="width:115px;height:75px;"></td>
+                  <td>San Jose State</td>
+              </tr>
+              <tr class="hiddenRow">
+                <td class="hiddenRow">
+                    <div class="collapse demo1">
+                      <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46045.html">Aerospace Studies</a>
+                    </div>
+                </td>
+                <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46044.html">Aerospace Engineering</a>
+                      </div>
+                </td>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46046.html">African American Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46095.html">African Studies</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46099.html">American Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46074.html">Animation and Illustration</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46047.html">Anthropology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46049.html">Applied Sciences</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46051.html">Art</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46050.html">Art Education</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46052.html">Art History</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46148.html">Asian American Studies</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46100.html">Asian Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46139.html">Astronomy</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46068.html">Audiology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46054.html">Aviation</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46055.html">Biology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46060.html">Biomedical Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46056.html">Botany</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46061.html">Buisiness Graduate Programs</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46043.html">Accounting and Finance</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46120.html">Management Information Systems</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46121.html">Marketing</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46137.html">School of Management</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46092.html">Global Innovation and Leadership</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46062.html">Chemical Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46063.html">Chemistry</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46064.html">Child and Adolescent Development</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46162.html">Chinese</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46065.html">Civil and Environmental Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46066.html">Communication Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46070.html">Computer Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46072.html">Computer Science</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46073.html">Counselor Education</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46101.html">Creative Arts</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46130.html">Dance</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46076.html">Design</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46079.html">Economics</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46080.html">EDD Leadership Program</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46081.html">Education</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46082.html">Educational Administration</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46083.html">Electrical Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46084.html">Elementary Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46087.html">English</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46086.html">English Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46057.html">Entomology</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46086.html">English Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46057.html">Entomology</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46088.html">Environmental Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46163.html">Foreign Language Education</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46164.html">Foreign Language</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46113.html">Forensic Science</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46165.html">French</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46089.html">General Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46090.html">Geology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46091.html">Geography</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46166.html">German</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46153.html">Gerontology</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46107.html">Global Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46075.html">Graphic Design</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46167.html">Greek</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46093.html">Health Professions</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46094.html">Health Science</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46093.html">Hebrew</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46096.html">History</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46098.html">Hospitality Management</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46096.html">History</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46098.html">Hospitality Management</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46102.html">Humanities</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46105.html">Humanities and The Arts</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46106.html">Industrial and Systems Engineering</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46105.html">Industrial Design</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46108.html">Intercollegiate Athletics</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46078.html">Interior Design</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46169.html">Italian</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46170.html">Japanese</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46097.html">Jewish Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46110.html">Journalism</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46114.html">Justice Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46115.html">Kinesiology</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46116.html">Kinesiology Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46171.html">Latin</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46118.html">Linguistics</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46171.html">Linguistics and Language Development</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46129.html">Marine Science</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46111.html">Mass Communication</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46122.html">Materials Engineering</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46124.html">Math Education</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46122.html">Math</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46125.html">Mechanical Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46122.html">Math</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46125.html">Mechanical Engineering</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46126.html">Meteorology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46127.html">Mexican American Studies</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46058.html">Microbiology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46103.html">Middle East Studies</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46128.html">Military Science</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46132.html">Music</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46131.html">Music Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46133.html">Nursing</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46131.html">Nutrition, Food Science and Packaging</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46136.html">Occupational Therapy</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46048.html">Organizational Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46135.html">Packaging</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46172.html">Persian</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46138.html">Philosophy</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46053.html">Photography</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46140.html">Physics</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46142.html">Political Science</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46173.html">Portguese</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46143.html">Psychology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46141.html">Public Administration</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46112.html">Public Relations</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46157.html">Radio - Television - Film</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46145.html">Recreation and Leisure Study</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46104.html">Religious Studies</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46117.html">School of Information</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46147.html">Science</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46146.html">Science Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46149.html">Social Science</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46151.html">Social Science All College</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46152.html">Social Science Education</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46154.html">Social Work</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46155.html">Sociology</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46071.html">Software Engineering</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46174.html">Spanish</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46156.html">Special Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46067.html">Speech Education</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46069.html">Speech Pathology</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46144.html">Statistics</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46085.html">Teacher Education</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46159.html">Technology</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46158.html">Theatre Arts</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46160.html">University Studies</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46161.html">Urban and Regional Planning</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46175.html">Vietnamese</a>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="hiddenRow">
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46175.html">Women's Studies</a>
+                      </div>
+                  </td>
+                  <td class="hiddenRow">
+                      <div class="collapse demo1">
+                        <a href="http://info.sjsu.edu/web-dbgen/soc-fall-courses/d46059.html">Zoology</a>
+                      </div>
+                  </td>
+              </tr>
+
+              </tr>
+          </tbody>
+        </table>
+        <br><br>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
