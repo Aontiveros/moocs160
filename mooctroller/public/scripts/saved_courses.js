@@ -83,50 +83,55 @@ $(document).ready(function () {
   }
 
   $('.save-btn').click(function(){
-
-    var d = table.rows().data();
-    $.post("/reset_courses/" + user, function(data, err){
-      save_courses(d);
-    });
+    if(table.row().data() !== undefined){
+      var d = table.rows().data();
+      $.post("/reset_courses/" + user, function(data, err){
+        save_courses(d);
+      });
+    }
   });
 
   $('.delete_course-btn').click(function() {
+    if(table.row().data() !== undefined){
 
-    $.ajax({
-      url:"/delete_course/"+user,
-      type: "POST",
-      contentType: "application/json",
-      // data: table.row(0).data(),
-      success: function() {
-        console.log('Course removed.');
-      },
-      error: function(err){
-        console.log('error'+err);
-      }
-    });
+      $.ajax({
+        url:"/delete_course/"+user,
+        type: "POST",
+        contentType: "application/json",
+        // data: table.row(0).data(),
+        success: function() {
+          console.log('Course removed.');
+        },
+        error: function(err){
+          console.log('error'+err);
+        }
+      });
 
-    table.row(0).remove();
-    table.draw();
+      table.row(0).remove();
+      table.draw();
+    }
   });
 
   $('.completed_course-btn').click(function(){
-    //add to course history
-    $.ajax({
-      url:"/completed_course/"+user,
-      type: "POST",
-      contentType: "application/json",
-      data: JSON.stringify(table.row(0).data()),
-      success: function() {
-        console.log('Course added to course history! Good Job!');
-      },
-      error: function(err){
-        console.log('error'+err);
-      }
-    });
+    if(table.row().data() !== undefined){
 
-    table.row(0).remove();
-    table.draw();
+      //add to course history
+      $.ajax({
+        url:"/completed_course/"+user,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(table.row(0).data()),
+        success: function() {
+          console.log('Course added to course history! Good Job!');
+        },
+        error: function(err){
+          console.log('error'+err);
+        }
+      });
 
+      table.row(0).remove();
+      table.draw();
+    }
   });
 
   function save_courses(d){
